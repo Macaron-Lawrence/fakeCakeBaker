@@ -41,7 +41,7 @@ class Cake(object):
         elif element[0:3] == '{{{':
             _img = cv2.imread(
                 './resources/'+element[3:], flags=cv2.IMREAD_COLOR)
-            cv2.resize(_img, (2340, int(_img.shape[1]*2340/_img.shape[0])))
+            _img = cv2.resize(_img, (2340, int(_img.shape[0]*2340/_img.shape[1])))
             img = np.zeros((50 + 25 + _img.shape[0], self.width, 3), np.uint8)
             img.fill(208)
             img = imgpast(img, _img, 70, 50)
